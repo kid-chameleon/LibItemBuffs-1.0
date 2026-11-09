@@ -18,6 +18,12 @@ You should have received a copy of the GNU General Public License
 along with LibItemBuffs-1.0. If not, see <http://www.gnu.org/licenses/>.
 --]]
 
+-- REVIEW: upstream's BfA 8.0.1 extract (2018), kept as-is for the retail flavor; nothing here
+-- was re-checked against 12.x and it predates the weaponEnchants table.
+local lib = LibStub('LibItemBuffs-1.0', true)
+if not lib then return end
+if lib.flavor ~= 'retail' then return end
+
 local version
 local trinkets = {}
 local consumables = {
@@ -4617,4 +4623,4 @@ consumables[281302] = 164374 -- Hozen Around (Magic Monkey Banana)
 consumables[281303] = 164375 -- Skeletal Monkey Mask (Bad Mojo Banana)
 consumables[284307] = 153023 -- Defiled Augmentation (Lightforged Augment Rune)
 
-LibStub('LibItemBuffs-1.0'):__UpgradeDatabase(version, trinkets, consumables, enchantments)
+lib:__UpgradeDatabase(version, trinkets, consumables, enchantments)
